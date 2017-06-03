@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nos Ecrits</title>
+</head>
+<body>
+
+<header>
+	<h1>Nos ecrits</h1>
+</header>
+
+<section>
+	{%for post in posts%}
+	<div>
+        <p>publié: {{ post.published_at }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+	{% endfor %}
+
+</section>
+<footer>
+	
+</footer>
+
+</body>
+</html>
