@@ -1,3 +1,101 @@
 h1 a{
 	color: #945;
 }
+
+aside {
+	margin-top: 60px;
+}
+section{
+	margin-left: 40px;
+}
+.dropdown a{
+	color: #d9edf7;
+}
+.logo{
+	text-align: center;
+	height: 100px;
+
+}
+.logo h1{
+	font-size: 42px;
+	text-transform: uppercase;
+	font-family: Papyrus;
+
+}
+.post-header{
+	text-align: center;
+	margin-bottom:20px;
+}
+
+.post-header h2 >a, .post-share h2{
+	font-family: Raleway;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #222;
+
+}
+
+.post-image{
+	text-align: center;
+}
+.post-header date{
+	text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-right: 5px;
+    font-size: 12px;
+    font-family: Lora;
+}
+
+.post-description{
+	margin-top:20px;
+	padding: 15px;
+}
+.post-share{
+	margin-top: 25px;
+	text-align: center;
+	background-image: 
+}
+.card{
+	border-bottom: 1px solid rgba(34,34,34,0.1);
+	border-right: 1px solid rgba(34,34,34,0.1);
+	border-left: 1px solid rgba(34,34,34,0.1);
+	padding: 25px;
+	margin-bottom: 70px;
+	text-align: center;
+}
+
+.card h3{
+	font-family: Raleway;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /*text-align: center;*/
+    display: block;
+    margin-top: -35px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card .card-img{
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.footer-copyright{
+	background-color: #222;
+	color: #f5f5f5;
+	font-size: 11px;
+	height: 40px;
+	text-align: center;
+	padding-top:5px;
+
+}

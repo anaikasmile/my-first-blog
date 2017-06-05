@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}	
+{% load staticfiles %}
+-{% block content %}
+	
+	{%for post in posts%}
+		
+		<article class="post">
+			<div class="post-header">
+
+				<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+				<date> {{ post.created_at|date:'d-m-Y' }}</date>
+			</div>
+			<div class="post-image">
+				<img src="{% static 'img/post-1.jpg' %}" class="img-responsive">
+			</div>
+			<div class="post-description">
+				<p>{{ post.text|truncatechars:200 }}</p>
+				<a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}"> Read more ... </a>
+			</div>
+			
+		</article>
+		<hr>
+		{% endfor %}
+
+	{% endblock content %}

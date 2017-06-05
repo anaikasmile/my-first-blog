@@ -1,20 +1,56 @@
 {% extends 'blog/base.html' %}	
 {% load staticfiles %}
     {% block content %}
-	<div class="row">
-
-		
-		<div class="col-md-12">
-			{% if post.published_date %}
+	
+			<!-- {% if post.published_at %}
 	        <p>publié: {{ post.published_at }}</p>
-	        {% endif%}
+	        {% else %}
+			    <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+			{% endif %}
+
+	        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	        <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	        <p>{{ post.text|linebreaksbr }}</p>
+	        <p>{{ post.text|linebreaksbr }}</p> -->
 	        
-	    </div>
-	   
+	    
+        <article class="post">
+			<div class="post-header">
+				
+				<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+			
+			{% if post.published_at %}
+				<date> {{ post.published_at|date:'d-m-Y' }}</date><br>
+				{% if user.is_authenticated %}
+				<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	        	<a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+	        	{% endif %}
+			{% else %}
+			    <date> {{ post.created_at|date:'d-m-Y' }}</date><br>
+				{% if user.is_authenticated %}
+				<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	        	<a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+	        	{% endif %}
+			    <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+			{% endif %}
+			</div>
+			<div class="post-image">
+				<img src="{% static 'img/post-1.jpg' %}" class="img-responsive">
+			</div>
+			<div class="post-description">
+				<p>{{ post.text }}</p>
+				
+			</div>
+			<hr>
+			<div class="post-share">
+				<h2>Share this story</h2>
+			</div>
+			
+		</article>
+
+	<section class="comment">
+	<h3> Comments</h3>
 		
-
-	</div>
-
+	</section>
 	{% endblock content %}

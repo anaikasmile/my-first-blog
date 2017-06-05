@@ -1,18 +1,40 @@
 {% extends 'blog/base.html' %}	
 {% load staticfiles %}
     {% block content %}
-	<div class="row">
+	
 
 		{%for post in posts%}
-		<div class="col-md-8">
-	        <p>publié: {{ post.published_at }}</p>
-	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	        <p>{{ post.text|linebreaksbr }}</p>
-	        <hr>
-	    </div>
-	   
+		
+		<article class="post">
+			<div class="post-header">
+
+				<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+				<date> {{ post.published_at|date:'l, F j, Y' }}</date>
+			</div>
+			<div class="post-image">
+				<img src="{% static 'img/post-1.jpg' %}" class="img-responsive">
+			</div>
+			<div class="post-description">
+				<p>{{ post.text|truncatechars:200 }}</p>
+				<a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}"> Read more ... </a>
+			</div>
+			<div class="post-share">
+				<a href="" class="btn btn-default"><i class="fa fa-facebook"></i></a>
+				<a href="" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+				<a href="" class="btn btn-default"><i class="fa fa-instagram"></i></a>
+			</div>
+			
+		</article>
+		<hr>
 		{% endfor %}
-
-	</div>
-
+	
+		<ul class="pagination">
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
 	{% endblock content %}
